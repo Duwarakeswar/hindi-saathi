@@ -1,0 +1,5 @@
+[theme]
+primaryColor = "#EA580C"
+
+[browser]
+gatherUsageStats = false

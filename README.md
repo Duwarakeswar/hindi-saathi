@@ -58,7 +58,7 @@ flowchart LR
 You need Python 3.10+ and a Sarvam API key from [dashboard.sarvam.ai](https://dashboard.sarvam.ai/) with credits.
 
 ```bash
-git clone https://github.com/<your-username>/hindi-saathi.git
+git clone https://github.com/Duwarakeswar/hindi-saathi.git
 cd hindi-saathi
 pip install -r requirements.txt
 cp .env.example .env

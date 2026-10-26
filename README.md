@@ -72,11 +72,14 @@ Then put your key in `.env` as `SARVAM_API_KEY=...`. **Never commit `.env`**: it
 streamlit run app.py
 ```
 
-Open http://localhost:8501. The app has three tabs:
+Open http://localhost:8501. The app has four pages:
 
-- 🔁 **Translate & Speak** is the core flow above.
-- 💬 **Tutor chat** has 📚 Lesson / 🧠 Quiz / 🔄 Review / 💬 Chat / 📈 Progress quick actions.
-- 📒 **Notebook** lists your saved words and when each is due for review.
+- 🔁 **Translate** is the core flow above. You can tap an example chip to translate in one click, or tap any word chip to hear it alone. A pronunciation **score ring** marks each word green or red.
+- 💬 **Tutor** is a chat with the Sarvam-105B agent. Quick-action chips cover the next lesson, a quiz, reviewing words, conversation practice and your progress.
+- 🃏 **Cards** are spaced-repetition flashcards. Reveal a card to hear it, then mark it *I knew it* or *Again*. A mastery level (●●○○○) tracks each word.
+- 📚 **Course** is a 12-lesson course map. **Start lesson** hands that lesson to the tutor.
+
+The header always shows your streak, saved words, words due, accuracy and lessons done. In the sidebar you can pick a voice (Priya, Shubh, Neha or Rahul) and turn on 🐢 slow audio.
 
 **Or chat in the terminal:**
 
@@ -115,13 +118,14 @@ python -m unittest -v
 
 ```
 hindi-saathi/
-├── app.py                   # Streamlit web app (Translate & Speak, Tutor chat, Notebook)
+├── app.py                   # Streamlit web app (Translate, Tutor, Cards, Course)
 ├── cli.py                   # Terminal tutor chat
 ├── hindi_saathi/
 │   ├── sarvam.py            # Sarvam REST client: chat, translate, transliterate, TTS, STT
 │   ├── agent.py             # Tutor agent: Sarvam-105B function-calling loop
 │   ├── tools.py             # Tool schemas + handlers
 │   ├── practice.py          # Pronunciation scoring (target vs Saaras transcript)
+│   ├── ui.py                # Theme, CSS and HTML building blocks
 │   ├── store.py             # Learner data, spaced repetition, streaks
 │   ├── curriculum.py        # 12-lesson Hindi course
 │   └── prompts.py           # Tutor system prompt
